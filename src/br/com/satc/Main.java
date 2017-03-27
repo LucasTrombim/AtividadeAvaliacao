@@ -1,9 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.com.satc;
+
+import java.util.Scanner;
 
 /**
  *
@@ -19,7 +17,7 @@ Código Condição de pagamento
 1 À vista em dinheiro ou cheque, recebe 10% de desconto
 2 À vista no cartão de crédito, recebe 15% de desconto
 3 Em duas vezes, preço normal de etiqueta sem juros
-4 Em duas vezes, preço normal de etiqueta mais juros de 10%
+4 Em três vezes, preço normal de etiqueta mais juros de 10%
 12) Escreva um algoritmo que leia o número de identificação, as 3 notas obtidas por um aluno nas
 3 verificações e a média dos exercícios que fazem parte da avaliação, e calcule a média de
 aproveitamento, usando a fórmula:
@@ -33,9 +31,47 @@ Média de aproveitamento Conceito
 >= 60 e < 75 C
 >= 40 e < 60 D
 < 40 E
+     * @param args
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner input = new Scanner(System.in);
+        System.out.println("Qual o valor do produto?");
+        float valor = input.nextFloat();
+        System.out.println("Qual a forma de pagamento."
+                +"(D)Dinheiro"
+                +"(C)Cartão"
+                +"(Q)Cheque");
+        char decisao = input.next().charAt(0);
+        if ((decisao=='D')||(decisao=='Q')){
+            float calculo1;
+            float calculo2;
+            calculo1=(float) (valor*0.1);
+            calculo2=(valor-calculo1);
+            System.out.println("Você pagará com 10% de desconto: "+calculo2);
+            
+        }else if (decisao=='C'){
+            System.out.println("Quantas vezes irá pagar?"
+                    +"(V)Á vista"
+                    +"(2)2 vezes"
+                    +"(3)3 vezes");
+        char decisao2 = input.next().charAt(0);
+         
+            if (decisao2 == 'V'){
+                float calculo1;
+            float calculo2;
+            calculo1=(float) (valor*0.15);
+            calculo2=(valor-calculo1);
+             System.out.println("Você terá um desconto de 15%,e irá pagar: "+calculo2);
+            }
+                
+                
+            
+                
+        
+        
+        
+    }
+        
     }
     
 }
